@@ -1,14 +1,27 @@
 package com.messenger.miracle.com.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+
+@Entity
+public class User implements Serializable{
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	int id;
-	String firstName;
-	String lastName;
+	String name;
 	String password;
 	String emailId;
+	@ManyToMany(cascade = CascadeType.ALL)
 	List<ContactRequest> contactRequests;
+	@ManyToMany(cascade = CascadeType.ALL)
 	List<Message> messages;
 	
 	public List<ContactRequest> getContactRequests() {
@@ -16,6 +29,12 @@ public class User {
 	}
 	public void setContactRequests(List<ContactRequest> contactRequests) {
 		this.contactRequests = contactRequests;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public List<Message> getMessages() {
 		return messages;
@@ -28,18 +47,6 @@ public class User {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 	public String getPassword() {
 		return password;

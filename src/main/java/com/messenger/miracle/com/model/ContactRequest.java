@@ -1,6 +1,25 @@
 package com.messenger.miracle.com.model;
 
-public class ContactRequest {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
+@Entity
+public class ContactRequest implements Serializable{
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	int id;
+	@OneToOne
+	User from;
+	@OneToOne
+	User to;
 	public int getId() {
 		return id;
 	}
@@ -19,15 +38,13 @@ public class ContactRequest {
 	public void setTo(User to) {
 		this.to = to;
 	}
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	public ContactStatus getContactStatus() {
 		return contactStatus;
 	}
 	public void setContactStatus(ContactStatus contactStatus) {
 		this.contactStatus = contactStatus;
 	}
-	int id;
-	User from;
-	User to;
+	
 	ContactStatus contactStatus;
 }

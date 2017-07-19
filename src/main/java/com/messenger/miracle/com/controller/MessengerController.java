@@ -14,24 +14,21 @@ public class MessengerController {
 	public User getUnReadMessages(@RequestBody User user){
 		// get User messages by id where status is UNREAD
 		User user1 = new User();
-		user1.setFirstName("Mohan");
-		user1.setLastName("Balasubramani");
+		user1.setName("test name");
 		return user1;
 	}
 	@RequestMapping(value= "getReadMessages", method = RequestMethod.GET)
 	public User getReadMessages(@RequestBody User user){
 		// get User messages by id where status is READ
 		User user1 = new User();
-		user1.setFirstName("Mohan");
-		user1.setLastName("Balasubramani");
+		user1.setName("test name");
 		return user1;
 	}
 	@RequestMapping(value= "getSentMessages", method = RequestMethod.GET)
 	public User getSentMessages(@RequestBody User user){
 		// get User messages by id where status is SENT
 		User user1 = new User();
-		user1.setFirstName("Mohan");
-		user1.setLastName("Balasubramani");
+		user1.setName("test name");
 		return user1;
 	}
 }
