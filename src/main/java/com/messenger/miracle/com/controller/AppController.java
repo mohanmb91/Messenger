@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  
 @Controller
 public class AppController {
- 
-//    @RequestMapping("/")
-//    String home(ModelMap modal) {
-//        
-//        return "index";
-//    }
+	
+	@RequestMapping("/")
+    String home(ModelMap modal) {
+        return "index";
+    }
  
     @RequestMapping("/partials/{page}")
     String partialHandler(@PathVariable("page") final String page) {
